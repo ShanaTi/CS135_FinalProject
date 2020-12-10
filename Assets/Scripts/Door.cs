@@ -36,13 +36,13 @@ public class Door : MonoBehaviour {
 
     private void FixedUpdate() {
         if(count > 0) {
-            door1.transform.position = door1_openPos;
-            door2.transform.position = door2_openPos;
+            door1.transform.position = door1_openPos; // TODO: Vector3.Slerp()
+            door2.transform.position = door2_openPos; // TODO: Vector3.Slerp()
             //Vector3.Slerp(door1.transform.position, door1_openPos, 1);
         }
         else {
-            door1.transform.position = door1_closePos;
-            door2.transform.position = door2_closePos;
+            door1.transform.position = door1_closePos; // TODO: Vector3.Slerp()
+            door2.transform.position = door2_closePos; // TODO: Vector3.Slerp()
         }
     }
 
