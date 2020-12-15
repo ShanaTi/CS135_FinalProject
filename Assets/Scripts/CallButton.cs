@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CallButton : MonoBehaviour {
+public class CallButton : MonoBehaviour, I_Interactable {
     public Elevator elevator;
     public Vector3 callPos;
 
@@ -14,7 +14,7 @@ public class CallButton : MonoBehaviour {
     private void Start() {
         
     }
-
+    /*
     private void OnTriggerStay(Collider other) {
         if(other.gameObject.tag == "Player") {
             if (other.GetComponent<Player>().action) {
@@ -23,6 +23,9 @@ public class CallButton : MonoBehaviour {
             }
         }
     }
-
-
+    */
+    public void Interact() {
+        elevator.Call(callPos, floor); // TODO: Vector3.Slerp()
+        Debug.Log("Called elevator!");
+    }
 }
