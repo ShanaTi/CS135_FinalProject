@@ -24,6 +24,16 @@ public class Player : MonoBehaviour {
     }
 
     private void FixedUpdate() {
-        
+        if (action) {
+            //Debug.Log("action button pressed!"); 
+        }
+    }
+
+    private void OnTriggerStay(Collider other) {
+        if(other.gameObject.tag == "Interactable" && action) {
+            I_Interactable interactable = other.gameObject.GetComponent<I_Interactable>();
+            interactable.Interact();
+            Debug.Log("Player: Interacting!");
+        }
     }
 }

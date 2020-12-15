@@ -48,14 +48,14 @@ public class Door : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other) {
         if(other.gameObject.tag == "Player") {
-            Debug.Log("Player detected!");
+            //Debug.Log("Player detected!");
             count++;
         }
     }
 
     private void OnTriggerExit(Collider other) {
         if (other.gameObject.tag == "Player") {
-            Debug.Log("Player missing!");
+            //Debug.Log("Player missing!");
             count--;
         }
     }
