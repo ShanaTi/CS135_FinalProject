@@ -8,6 +8,7 @@ public class Player : MonoBehaviour {
     }
     public CrewmateOrImposter team;
 
+    //public Rigidbody rigidbody;
     public bool action;
 
     private void Start() {
