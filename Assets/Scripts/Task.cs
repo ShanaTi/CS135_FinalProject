@@ -8,18 +8,29 @@ public abstract class Task : MonoBehaviour, I_Interactable {
     public enum State {
         Idle, Active, Complete
     };
-    protected State state;
+    public State state;
     
     public void Interact(Player p) {
-        if (!player) {
+        Debug.Log("Task: Interact()");
+        if (!player && !p.currentTask) {
+            Debug.Log("Task: Interact(): !player");
             this.player = p;
             if (state == State.Idle) {
                 StartTask();
+                p.action = false;
             }
-            else if (state == State.Active) {
+            p.currentTask = this;
+            Debug.Log("Task started!");
+        }
+        else if (player && p.currentTask) { // player variable already set; a Player is currently interacting with this Task
+            if(player == p && state == State.Active) {
                 ExitTask();
+                p.currentTask = null;
+                p.action = false;
                 player = null;
+                //state = State.Idle;
             }
+            Debug.Log("Task ended!");
         }
     }
 

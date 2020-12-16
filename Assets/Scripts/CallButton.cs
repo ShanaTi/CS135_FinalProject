@@ -24,7 +24,7 @@ public class CallButton : MonoBehaviour, I_Interactable {
         }
     }
     */
-    public void Interact() {
+    public void Interact(Player p) {
         elevator.Call(callPos, floor); // TODO: Vector3.Slerp()
         Debug.Log("Called elevator!");
     }
