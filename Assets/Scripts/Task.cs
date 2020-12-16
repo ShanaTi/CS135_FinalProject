@@ -25,13 +25,17 @@ public abstract class Task : MonoBehaviour, I_Interactable {
         else if (player && p.currentTask) { // player variable already set; a Player is currently interacting with this Task
             if(player == p && state == State.Active) {
                 ExitTask();
-                p.currentTask = null;
-                p.action = false;
-                player = null;
+                TaskEnd();
                 //state = State.Idle;
             }
             Debug.Log("Task ended!");
         }
+    }
+
+    protected void TaskEnd() {
+        player.currentTask = null;
+        player.action = false;
+        player = null;
     }
 
     protected abstract void StartTask();

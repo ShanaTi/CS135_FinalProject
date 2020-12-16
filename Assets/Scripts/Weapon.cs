@@ -59,6 +59,11 @@ public class Weapon : Task {
                 turret.transform.LookAt(aimPoint);
                 turret.transform.Rotate(offset);
             }
+
+            if((this.transform.position - player.transform.position).magnitude > 7.5f) { // Player moved more than 5 units away from Weapon
+                ExitTask();
+                TaskEnd();
+            }
         }
         else if(state == State.Complete) {
             CompleteTask();
